@@ -15,7 +15,7 @@ public class Patient extends Thread {
     @Override
     public void run() {
         try {
-            System.out.println("Patient " + id + " arrived at the hospital.");
+            System.out.println("P" + id + " arrived.");
 
             resources.enterWaitingRoom(this);
 
