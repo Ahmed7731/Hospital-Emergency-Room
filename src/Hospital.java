@@ -31,12 +31,13 @@ public class Hospital {
         log("Patients arriving:");
         String names = "";
         for (int i = 1; i <= numberOfPatients; i++) {
-            names += "Patient " + i + " ";
+            names += "P" + i + " ";
         }
         log(names.trim());
 
         // Person 4: needs constructor SharedResources(int waitingRoomCapacity, int treatmentRooms)
-        SharedResources resources = new SharedResources(waitingRoomCapacity, 2);
+        int treatmentRooms = 2;
+        SharedResources resources = new SharedResources(waitingRoomCapacity, treatmentRooms);
 
         // Person 3: needs constructor Doctor(int id, SharedResources resources)
         Doctor[] doctors = new Doctor[numberOfDoctors];
