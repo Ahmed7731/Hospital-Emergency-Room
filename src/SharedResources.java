@@ -35,8 +35,7 @@ public class SharedResources {
     public void enterWaitingRoom(Patient patient) throws InterruptedException {
 
         if (!emptySlots.acquire(0)) {
-            Hospital.log("The waiting room is full.");
-            Hospital.log("P" + patient.getIdNumber() + " is waiting outside for an available seat.");
+            Hospital.log("The waiting room is full.\nP" + patient.getIdNumber() + " is waiting outside for an available seat.");
             emptySlots.acquire();
         }
 
