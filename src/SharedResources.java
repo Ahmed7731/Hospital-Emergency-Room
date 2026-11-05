@@ -5,7 +5,6 @@ public class SharedResources {
 
     // Waiting room
     private Queue<Patient> waitingRoom;
-    private int waitingRoomCapacity;
 
     // Waiting room semaphores
     private Semaphore emptySlots;
@@ -21,8 +20,6 @@ public class SharedResources {
 
     // Constructor
     public SharedResources(int waitingRoomCapacity, int treatmentRooms) {
-
-        this.waitingRoomCapacity = waitingRoomCapacity;
 
         waitingRoom = new ArrayDeque<>();
 
