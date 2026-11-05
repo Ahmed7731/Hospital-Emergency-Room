@@ -48,6 +48,7 @@ public class Hospital {
         for (int i = 0; i < numberOfPatients; i++) {
             patients[i] = new Patient(i + 1, resources);
             patients[i].start();
+            Thread.sleep(300);
         }
 
         for (Patient p : patients) {
