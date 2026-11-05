@@ -37,7 +37,11 @@ public class SharedResources {
     // Patient enters the waiting room
     public void enterWaitingRoom(Patient patient) throws InterruptedException {
 
-        emptySlots.acquire();
+        if (!emptySlots.acquire(0)) {
+            Hospital.log("The waiting room is full.");
+            Hospital.log("P" + patient.getIdNumber() + " is waiting outside for an available seat.");
+            emptySlots.acquire();
+        }
 
         try {
             mutex.acquire();
@@ -73,7 +77,6 @@ public class SharedResources {
 
         try {
             patient = waitingRoom.remove();
-            Hospital.log("P" + patient.getIdNumber() + " left the waiting room.");
         } finally {
             mutex.release();
         }
@@ -102,8 +105,6 @@ public class SharedResources {
     public void returnPatient(Patient patient) throws InterruptedException {
 
         enterWaitingRoom(patient);
-
-        Hospital.log("P" + patient.getIdNumber() + " returned to the waiting room.");
     }
 
 
