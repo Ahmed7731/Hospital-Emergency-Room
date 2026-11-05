@@ -35,11 +35,9 @@ public class Hospital {
         }
         log(names.trim());
 
-        // Person 4: needs constructor SharedResources(int waitingRoomCapacity, int treatmentRooms)
         int treatmentRooms = 2;
         SharedResources resources = new SharedResources(waitingRoomCapacity, treatmentRooms);
 
-        // Person 3: needs constructor Doctor(int id, SharedResources resources)
         Doctor[] doctors = new Doctor[numberOfDoctors];
         for (int i = 0; i < numberOfDoctors; i++) {
             doctors[i] = new Doctor(i + 1, resources);
@@ -56,10 +54,8 @@ public class Hospital {
             p.join();
         }
 
-        // Person 4: needs method waitUntilAllTreated(int total) throws InterruptedException
         resources.waitUntilAllTreated(numberOfPatients);
 
-        // Person 3: Doctor must catch InterruptedException and exit run()
         for (Doctor d : doctors) {
             d.interrupt();
         }
