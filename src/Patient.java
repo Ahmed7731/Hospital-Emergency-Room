@@ -1,7 +1,7 @@
 public class Patient extends Thread {
 
-    private int id;
-    private SharedResources resources;
+    private final int id;
+    private final SharedResources resources;
 
     public Patient(int id, SharedResources resources) {
         this.id = id;
@@ -15,7 +15,7 @@ public class Patient extends Thread {
     @Override
     public void run() {
         try {
-            System.out.println("P" + id + " arrived.");
+            Hospital.log("P" + id + " arrived.");
 
             resources.enterWaitingRoom(this);
 
