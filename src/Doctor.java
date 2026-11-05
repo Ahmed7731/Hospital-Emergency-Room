@@ -21,7 +21,7 @@ public class Doctor extends Thread {
                     try {
                         say("acquired a treatment room.");
                         say("begins treating " + name + ".");
-                        Thread.sleep(ThreadLocalRandom.current().nextInt(1000, 3000));
+                        Thread.sleep(2000 + (int) (Math.random() * 3000));
                         say("finished treating " + name + ".");
                     } finally {
                         resources.releaseTreatmentRoom();
